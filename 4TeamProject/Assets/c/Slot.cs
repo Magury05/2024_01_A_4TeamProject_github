@@ -5,9 +5,9 @@ using UnityEngine.EventSystems;
 
 public class Slot : MonoBehaviour, IDropHandler
 {
-   GameObject Icon()
+    public GameObject GetIcon()
     {
-        if(transform.childCount > 0)
+        if (transform.childCount > 0)
             return transform.GetChild(0).gameObject;
         else
             return null;
@@ -15,10 +15,11 @@ public class Slot : MonoBehaviour, IDropHandler
 
     public void OnDrop(PointerEventData eventData)
     {
-        if(Icon() == null)
+        if (GetIcon() == null)
         {
             Drag.beingDraggedIcon.transform.SetParent(transform);
             Drag.beingDraggedIcon.transform.position = transform.position;
         }
     }
 }
+
